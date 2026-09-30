@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Schedule | Trivena Yogshala</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <style>
+        /* =================================
+           SCHEDULE PAGE
+        ================================= */
+
+        /* ---------- SCHEDULE HERO ---------- */
+
+.schedule-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 120px 7% 80px;
+
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.schedule-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+        .schedule-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+    color: white;
+}
+
+        .schedule-hero-content .section-label {
+            margin-bottom: 20px;
+        }
+
+       .schedule-hero h1 {
+    font-size: clamp(60px, 8vw, 105px);
+    line-height: 0.95;
+    letter-spacing: 2px;
+    color: white;
+    margin-bottom: 25px;
+}
+
+     .schedule-hero p:last-child {
+    font-size: 22px;
+    color: white;
+    line-height: 1.6;
+}
+.schedule-hero-image {
+    display: none;
+}
+
+        /* ---------- HERO IMAGE ---------- */
+
+        .schedule-hero-image {
+            width: 100%;
+            height: 520px;
+
+            overflow: hidden;
+
+            border-radius: 4px;
+        }
+
+        .schedule-hero-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        /* ---------- SCHEDULE INTRO ---------- */
+
+        .schedule-intro {
+            text-align: center;
+
+            max-width: 800px;
+
+            margin: 0 auto;
+
+            padding: 90px 8% 60px;
+        }
+
+        .schedule-intro h2 {
+            font-size: clamp(40px, 5vw, 60px);
+
+            color: #28352d;
+
+            margin-bottom: 20px;
+        }
+
+        .schedule-intro p:not(.section-label) {
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            color: #59655d;
+        }
+
+        /* ---------- SCHEDULE SECTION ---------- */
+
+        .schedule-section {
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 80px 7%;
+
+            border-bottom: 1px solid rgba(40, 53, 45, 0.15);
+        }
+
+        .schedule-section:nth-of-type(even) {
+            background: #eeeae0;
+        }
+
+        .schedule-section-header {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+        .schedule-section-header h2 {
+            font-size: clamp(38px, 5vw, 58px);
+
+            color: #28352d;
+
+            margin-bottom: 15px;
+        }
+
+        .schedule-section-header p:not(.section-label) {
+            font-size: 17px;
+
+            color: #59655d;
+        }
+
+        /* ---------- SCHEDULE TABLE ---------- */
+
+        .schedule-table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: #ffffff;
+
+            overflow: hidden;
+        }
+
+        .schedule-table th {
+            background: #28352d;
+
+            color: white;
+
+            padding: 18px;
+
+            text-align: left;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+        .schedule-table td {
+            padding: 20px;
+
+            border-bottom: 1px solid rgba(40, 53, 45, 0.15);
+
+            color: #59655d;
+
+            font-size: 17px;
+
+            line-height: 1.6;
+
+            vertical-align: top;
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .schedule-table td:first-child {
+            font-weight: bold;
+
+            color: #28352d;
+
+            width: 25%;
+        }
+
+        .schedule-table td:nth-child(2) {
+            width: 30%;
+        }
+
+        /* ---------- OTHER SERVICES ---------- */
+
+        .other-services {
+            max-width: 1000px;
+
+            margin: 0 auto;
+        }
+
+        .service-box {
+            display: grid;
+
+            grid-template-columns: 1fr 1.5fr;
+
+            gap: 30px;
+
+            padding: 30px 0;
+
+            border-bottom: 1px solid rgba(40, 53, 45, 0.15);
+        }
+
+        .service-box:last-child {
+            border-bottom: none;
+        }
+
+        .service-box h3 {
+            font-size: 24px;
+
+            color: #28352d;
+
+            margin-bottom: 8px;
+        }
+
+        .service-box p {
+            font-size: 17px;
+
+            color: #59655d;
+
+            line-height: 1.6;
+
+            margin: 0;
+        }
+
+        /* ---------- FLEXIBLE SERVICES ---------- */
+
+        .flexible-services {
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            text-align: center;
+        }
+
+        .flexible-services ul {
+            list-style: none;
+
+            padding: 0;
+
+            margin: 30px 0 0;
+        }
+
+        .flexible-services li {
+            padding: 18px;
+
+            margin-bottom: 12px;
+
+            background: #ffffff;
+
+            font-size: 18px;
+
+            color: #59655d;
+
+            border-left: 4px solid #7b6b55;
+        }
+
+        /* ---------- FINAL CTA ---------- */
+
+        .schedule-cta {
+            text-align: center;
+
+            padding: 100px 8%;
+
+            background: #dfe4dc;
+        }
+
+        .schedule-cta h2 {
+            font-size: clamp(40px, 5vw, 60px);
+
+            color: #28352d;
+
+            margin-bottom: 20px;
+        }
+
+        .schedule-cta p:not(.section-label) {
+            max-width: 700px;
+
+            margin: 0 auto;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            color: #59655d;
+        }
+
+        /* ---------- MOBILE ---------- */
+
+        @media (max-width: 768px) {
+
+            .schedule-hero {
+                grid-template-columns: 1fr;
+
+                padding: 120px 6% 70px;
+
+                gap: 40px;
+            }
+
+            .schedule-hero h1 {
+                font-size: 55px;
+            }
+
+            .schedule-hero p:last-child {
+                font-size: 19px;
+            }
+
+            .schedule-hero-image {
+                height: 380px;
+            }
+
+            .schedule-intro {
+                padding: 70px 6% 40px;
+            }
+
+            .schedule-section {
+                padding: 65px 6%;
+            }
+
+            .schedule-table {
+                display: block;
+
+                overflow-x: auto;
+            }
+
+            .schedule-table th,
+            .schedule-table td {
+                min-width: 160px;
+
+                padding: 15px;
+
+                font-size: 16px;
+            }
+
+            .service-box {
+                grid-template-columns: 1fr;
+
+                gap: 10px;
+            }
+
+            .schedule-cta {
+                padding: 80px 6%;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .schedule-hero h1 {
+                font-size: 43px;
+            }
+
+            .schedule-hero-image {
+                height: 300px;
+            }
+
+            .schedule-section-header h2 {
+                font-size: 38px;
+            }
+
+            .schedule-table th,
+            .schedule-table td {
+                font-size: 15px;
+
+                padding: 13px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            TRIVENA YOGSHALA
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="programs.html">Services</a>
+            <a href="teachers.html">Instructor's profile</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- ================================
+             SCHEDULE HERO
+        ================================= -->
+
+        <section class="schedule-hero">
+
+            <div class="schedule-hero-content">
+
+                <p class="section-label">
+                    FIND YOUR TIME
+                </p>
+
+                <h1>
+                    Our<br>
+                    Schedule
+                </h1>
+
+                <p>
+                    Find a practice that fits your rhythm,
+                    your routine and your journey.
+                </p>
+
+            </div>
+
+
+            <div class="schedule-hero-image">
+
+                <img src="images/background.jpg"
+                     alt="Trivena Yogshala">
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             INTRO
+        ================================= -->
+
+        <section class="schedule-intro">
+
+            <p class="section-label">
+                PRACTICE WITH US
+            </p>
+
+            <p>
+                Explore our morning, evening and weekend sessions,
+                along with wellness services and flexible-time
+                programs at Trivena Yogshala.
+            </p>
+
+        </section>
+
+
+        <!-- ================================
+             MORNING SCHEDULE
+        ================================= -->
+
+        <section class="schedule-section">
+
+            <div class="schedule-section-header">
+
+                <p class="section-label">
+                   <h2> TRIVENA'S MORNING PACKAGE <h2>
+                </p>
+
+            </div>
+
+
+            <table class="schedule-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Time</th>
+                        <th>Days</th>
+                        <th>Service</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            6:00 – 7:00 AM
+                        </td>
+
+                        <td>
+                            Sunday – Thursday <br>
+                            Friday
+                        </td>
+
+                        <td>
+                            Yoga <br>
+                            Zumba
+                        </td>
+
+                    </tr>
+                    
+
+
+                    <tr>
+
+                        <td>
+                            7:10 – 8:10 AM
+                        </td>
+
+                        <td>
+                            Sunday-Friday
+                        </td>
+
+                        <td>
+                            Yoga 
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            8:30– 9:30 AM
+                        </td>
+
+                        <td>
+                            Sunday-Friday (except wednesday) <br>
+                            Wednesday
+                        </td>
+
+                        <td>
+                            Yoga <br>
+                            Mat Pilaties
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+        <!-- ================================
+             KIDS WEEKEND
+        ================================= -->
+
+        <section class="schedule-section">
+
+            <div class="schedule-section-header">
+
+                <p class="section-label">
+                   <h2> AFTERNOON AND EVENING SESSION </h2>
+                   <p>
+                    <h1>Flexible time for teacher's training, sound healing, tarrot reading etc.<br>
+                    (reservation required for sound healing and tarrot reading)</h1>
+                   </p>
+                </p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             OTHER SERVICES
+        ================================= -->
+
+        <section class="schedule-section">
+
+            <div class="schedule-section-header">
+
+                <p class="section-label">
+                    OTHER SERVICES
+                </p>
+
+                <h2>
+                    Wellness & Healing
+                </h2>
+
+                <p>
+                    Flexible-time sessions are available.
+                </p>
+
+            </div>
+
+
+            <div class="other-services">
+
+
+                <div class="service-box">
+
+                    <div>
+
+                        <h3>
+                            Sound Healing
+                        </h3>
+
+                        <p>
+                            Flexible Time
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Individual Sessions<br>
+                            Group Sessions
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-box">
+
+                    <div>
+
+                        <h3>
+                            Chakra Activation
+                        </h3>
+
+                        <p>
+                            Flexible Time
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Individual and Group Sessions
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-box">
+
+                    <div>
+
+                        <h3>
+                            Tarot Card Reading
+                        </h3>
+
+                        <p>
+                            Flexible Time
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Individual Sessions
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="service-box">
+
+                    <div>
+
+                        <h3>
+                            Sound and Vibration Massage Therapy 
+                        </h3>
+
+                        <p>
+                            Flexible Time
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Individual Sessions
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             FLEXIBLE SERVICES
+        ================================= -->
+
+        <section class="schedule-section">
+
+            <div class="schedule-section-header">
+
+                <p class="section-label">
+                    FLEXIBLE TIME
+                </p>
+
+                <h2>
+                    Additional Sessions
+                </h2>
+
+            </div>
+
+
+            <div class="flexible-services">
+
+                <ul>
+
+                    <li>
+                        Private Yoga and Dance Classes
+                    </li>
+
+                    <li>
+                        Weekend Awareness Raising Workshops
+                        on Wellness
+                    </li>
+
+                    <li> 
+                        Drop-In Yoga Classes
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             FINAL CTA
+        ================================= -->
+
+        <section class="schedule-cta">
+
+            <p class="section-label">
+                YOUR JOURNEY
+            </p>
+
+            <h2>
+                Find Your Time. Find Your Practice.
+            </h2>
+
+            <p>
+                Explore our schedule and discover a session
+                that works for you.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>
+            TRIVENA YOGSHALA
+        </h3>
+
+        <p>
+            Breathe. Balance. Belong.
+        </p>
+
+        <p>
+            © 2026 Trivena Yogshala Private Limited. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
